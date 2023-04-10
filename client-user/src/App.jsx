@@ -1,25 +1,32 @@
 import React, { useEffect, useState } from "react" 
 import Navbar from "./components/Navbar.jsx"
+import Footer from "./components/Footer.jsx"
 import Homepage from "./pages/Home.jsx"
+import ProductDetail from "./pages/Detail.jsx"
 
 
 
 function App() {
-  const [data, setData] = useState(null)
+  const [data, setData] = useState([])
 
   useEffect (() => {
     async function fetchData(){
-      const data = await fetch('http://localhost:3000/Product')
-      setData(data)
+      const response = await fetch('http://localhost:3000/Product')
+      const products = await response.json()
+      return products
     }
-    fetchData()
-  })
+    fetchData().then(products => {
+      setData(products)
+    })
+  }, [])
 
   return (
     <>
-    {/* <div>{data}</div> */}
+    {/* {console.log(data[0])} */}
     <Navbar />
-    <Homepage data={data}/>
+    {/* <Homepage data={data}/> */}
+    <ProductDetail />
+    <Footer />
     </>
   )
 }

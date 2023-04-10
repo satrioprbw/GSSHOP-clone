@@ -3,6 +3,7 @@ import React from "react"
 function Homepage(data) {
   return (
     <>
+      {console.log(data)};
       <div className="grid ">
         <div className="flex flex-col">
           <div className="flex justify-center px-10 pt-5">
@@ -17,14 +18,16 @@ function Homepage(data) {
       </div>
       <div>
         <div className="grid grid-cols-4 md:grid-cols-4 gap-4 ">
-          <div className="flex flex-col ">
-            <div className="flex justify-center bg-slate-50">
-              <img className="h-auto content-center max-w-full rounded-lg" src="https://www.gsshop.id/game/Game/PS5/RE4Remake-CoverPS5.jpg" alt="" />
+          {/* {data.forEach(el => { */}
+            <div className="flex flex-col ">
+              <div className="flex justify-center bg-slate-50">
+                <img className="h-auto content-center max-w-full rounded-lg" src="" alt="" />
+              </div>
+              <div className="flex justify-center">
+                <a href="#"></a>
+              </div>
             </div>
-            <div className="flex justify-center">
-              <a href="#">Resident Evil 4 Remake</a>
-            </div>
-          </div>
+          {/* })} */}
           <div className="flex justify-around bg-slate-50">
             <img className="h-auto max-w-full rounded-lg" src="https://www.gsshop.id/game/Game/PS5/RE4Remake-CoverPS5.jpg" alt="" />
           </div>
