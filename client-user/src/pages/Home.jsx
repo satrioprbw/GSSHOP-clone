@@ -3,6 +3,7 @@ import useFetch from "../hooks/useFetch"
 
 function Homepage() {
   const { data } = useFetch("http://localhost:3000/products?_expand=platform&_expand=author")
+  const filteredData = data.filter(el => el.platform.name === 'PS5')
   return (
     <>
       <div className="grid ">
@@ -19,8 +20,8 @@ function Homepage() {
       </div>
       <div>
         <div className="grid grid-cols-4 md:grid-cols-4 gap-4 mb-10">
-          {data.map(el => {
-            return <div className="flex flex-col ">
+          {filteredData.map(el => {
+            return <div key={el.id} className="flex flex-col ">
               <div className="flex justify-center bg-slate-50">
                 <img className="h-auto content-center max-w-full rounded-lg" src={el.mainImg} alt="" />
               </div>

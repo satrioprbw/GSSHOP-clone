@@ -14,8 +14,8 @@ Struktur Folder:
 
 Target:
 
-- [ ] Lecture - React Intro
-- [ ] React: Class Component vs Function Component
+- [V] Lecture - React Intro
+- [V] React: Class Component vs Function Component
 - [ ] Mempelajari State menggunakan useState
 - [ ] Mengirim Props baik berupa sebuah state atau function
 - [ ] Event Handling (onClick, onChange, onSubmit)
@@ -23,10 +23,10 @@ Target:
 - [ ] Looping List of Data di dalam React
 - [ ] Lifecycle component menggunakan useEffect
 - [X] Membuat server (json-server)
-- [ ] Membuat react app untuk client-user (Styling)
+- [V] Membuat react app untuk client-user (Styling)
 - [ ] Membuat react app untuk client-admin (CRUD)
-- [X] Menentukan Thema Aplikasi
-- [X] Menentukan Design dan pemilihan CSS Framework
+- [V] Menentukan Thema Aplikasi
+- [V] Menentukan Design dan pemilihan CSS Framework
 
 **Report:**
 
@@ -39,11 +39,11 @@ Target:
 
 Target:
 
-- [ ] Lecture - Custom Hooks
-- [ ] Rules of Hooks
-- [ ] Lecture - React-Router
-- [ ] Membuat router user-side (min: home, detail)
-- [ ] Membuat router admin-side (min: login, add admin, CRUD main entitas, CRUD another entitas)
+- [V] Lecture - Custom Hooks
+- [V] Rules of Hooks
+- [V] Lecture - React-Router
+- [V] Membuat router user-side (min: home, detail)
+- [V] Membuat router admin-side (min: login, add admin, CRUD main entitas, CRUD another entitas)
 - [ ] Membuat privateRoute untuk admin
 
 **Report:**

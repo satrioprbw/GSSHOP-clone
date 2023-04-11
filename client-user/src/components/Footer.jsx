@@ -19,7 +19,7 @@ function Footer() {
                 <p>Facebook</p>
               </a>
             </div>
-            <div class="flex items-center">
+            <div class="flex items-center ">
               <a href="" class="flex items-center">
                 <img src="https://www.gsshop.id/img/logo-twitter.png" class="mr-3 h-8" alt="FlowBite Logo" />
                 <p>Twitter</p>

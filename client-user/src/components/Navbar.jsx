@@ -1,17 +1,16 @@
 import React from "react"
 import useFetch from "../hooks/useFetch"
 import { useState } from "react"
-import { useEffect } from "react"
 
 function Navbar() {
   const [selected, setSelected] = useState('PS5')
   const {data} = useFetch('http://localhost:3000/platforms')
 
-  useEffect(() => {
-    function handleSelect(name){
-      setSelected(name)
-    }
-  })
+ 
+  function handleSelect(name){
+    setSelected(name)
+  }
+
 
   return (
     <nav className="bg-white border-gray-200">
@@ -28,7 +27,7 @@ function Navbar() {
             {data.map(el => {
               return (
           <li>
-              <a href="#" className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0">{el.name}</a>
+              <a onClick={() => handleSelect(el.name)} href="#" className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0">{el.name}</a>
             </li>
               )
             })}
