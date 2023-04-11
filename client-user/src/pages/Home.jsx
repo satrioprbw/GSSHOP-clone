@@ -1,6 +1,6 @@
 import React from "react"
 import useFetch from "../hooks/useFetch"
-import { useParams } from "react-router-dom"
+import { Link, useParams } from "react-router-dom"
 
 function Homepage() {
   let { data } = useFetch("http://localhost:3000/products?_expand=platform&_expand=author")
@@ -25,14 +25,14 @@ function Homepage() {
       <div>
         <div className="grid grid-cols-4 md:grid-cols-4 gap-4 mb-10">
           {data.map(el => {
-            return <div key={el.id} className="flex flex-col ">
+            return <Link to={`/product/${el.slug}`} key={el.id} className="flex flex-col ">
               <div className="flex justify-center bg-slate-50">
                 <img className="h-auto content-center max-w-full rounded-lg" src={el.mainImg} alt="" />
               </div>
               <div className="flex justify-center">
                 <a href="#">{el.name}</a>
               </div>
-            </div>
+            </Link>
           })}
 
         </div>

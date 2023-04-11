@@ -1,19 +1,25 @@
 import React from "react"
+import useFetch from "../hooks/useFetch"
+import { useParams } from "react-router-dom"
 
 function ProductDetail() {
+  let { data } = useFetch("http://localhost:3000/products?_expand=platform&_expand=author")
+  const { slug } = useParams()
+  data = data.filter(el => el.slug === slug)
+  console.log(data);
   return (
     <>
       <div>
         <div className="grid grid-cols-2 md:grid-cols-2 gap-2 ps-10 pt-10">
           <div>
-            <img className="h-auto content-center max-w-full rounded-lg" src="https://i.ytimg.com/vi/Id2EaldBaWw/maxresdefault.jpg" alt="" />
+            <img className="h-auto content-center max-w-full rounded-lg" src={data[0]?.mainImg} alt="" />
           </div>
           <div className="flex flex-col ps-10">
-            <h1 className="text-3xl font-bold">Resident Evil 4 Remake</h1>
-            <p>Genre        : Horror</p>
-            <p>Platform     : PS5</p>
-            <p>Publisher    : Capcom</p>
-            <p>Release Date : 24 Maret 2023</p>
+            <h1 className="text-3xl font-bold">{data[0]?.name}</h1>
+            <p>Genre        : {data[0]?.genre}</p>
+            <p>Platform     : {data[0]?.platform.name}</p>
+            <p>Publisher    : {data[0]?.publisher}</p>
+            <p>Release Date : {data[0]?.release_date}</p>
           </div>
         </div>
         <div className="ps-10 pt-10 pb-10">
