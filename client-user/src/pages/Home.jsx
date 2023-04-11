@@ -1,9 +1,12 @@
 import React from "react"
+import useFetch from "../components/useFetch"
 
-function Homepage(data) {
+function Homepage() {
+  const { data } = useFetch("http://localhost:3000/Product")
+  console.log(data);
   return (
     <>
-      {console.log(data)};
+      {/* {console.log(data)}; */}
       <div className="grid ">
         <div className="flex flex-col">
           <div className="flex justify-center px-10 pt-5">
@@ -17,32 +20,18 @@ function Homepage(data) {
         </div>
       </div>
       <div>
-        <div className="grid grid-cols-4 md:grid-cols-4 gap-4 ">
-          {/* {data.forEach(el => { */}
-            <div className="flex flex-col ">
+        <div className="grid grid-cols-4 md:grid-cols-4 gap-4 mb-10">
+          {data.map(el => {
+            return <div className="flex flex-col ">
               <div className="flex justify-center bg-slate-50">
-                <img className="h-auto content-center max-w-full rounded-lg" src="" alt="" />
+                <img className="h-auto content-center max-w-full rounded-lg" src={el.mainImg} alt="" />
               </div>
               <div className="flex justify-center">
-                <a href="#"></a>
+                <a href="#">{el.name}</a>
               </div>
             </div>
-          {/* })} */}
-          <div className="flex justify-around bg-slate-50">
-            <img className="h-auto max-w-full rounded-lg" src="https://www.gsshop.id/game/Game/PS5/RE4Remake-CoverPS5.jpg" alt="" />
-          </div>
-          <div className="flex justify-around bg-slate-50">
-            <img className="h-auto max-w-full rounded-lg" src="https://www.gsshop.id/game/Game/PS5/RE4Remake-CoverPS5.jpg" alt="" />
-          </div>
-          <div className="flex justify-around bg-slate-50">
-            <img className="h-auto max-w-full rounded-lg" src="https://www.gsshop.id/game/Game/PS5/RE4Remake-CoverPS5.jpg" alt="" />
-          </div>
-          <div className="flex justify-around bg-slate-50">
-            <img className="h-auto max-w-full rounded-lg" src="https://www.gsshop.id/game/Game/PS5/RE4Remake-CoverPS5.jpg" alt="" />
-          </div>
-          <div className="flex justify-around bg-slate-50">
-            <img className="h-auto max-w-full rounded-lg" src="https://www.gsshop.id/game/Game/PS5/RE4Remake-CoverPS5.jpg" alt="" />
-          </div>
+          })}
+
         </div>
       </div>
     </>

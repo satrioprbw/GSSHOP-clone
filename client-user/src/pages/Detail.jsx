@@ -16,7 +16,7 @@ function ProductDetail() {
             <p>Release Date : 24 Maret 2023</p>
           </div>
         </div>
-        <div className="ps-10 pt-10">
+        <div className="ps-10 pt-10 pb-10">
           <h1 className="text-3xl py-5">Sinopsis</h1>
           <p className="py-3">Survival is just the beginning</p>
           <p className="py-3">Resident Evil 4 is a remake of the 2005 original Resident Evil 4. Reimagined for 2023 to bring state-of-the-art survival horror.</p>
