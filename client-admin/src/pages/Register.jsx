@@ -7,6 +7,10 @@ export default function Register() {
           <img src="https://www.gsshop.id/img/logo.png" className="h-10 text-center max-w-lg mx-auto" alt="GSSHOP Logo" />
           <h5 className="text-xl font-medium text-gray-900 dark:text-white">Register New Admin</h5>
           <div>
+            <label for="username" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your username</label>
+            <input type="text" name="username" id="username" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="johndoe" required />
+          </div>
+          <div>
             <label for="email" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your email</label>
             <input type="email" name="email" id="email" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="name@company.com" required />
           </div>

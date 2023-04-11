@@ -1,5 +1,5 @@
 {
-  "User": [
+  "authors": [
     {
       "id": 1,
       "username": "john123",
@@ -28,7 +28,7 @@
       "address": "Jl. Jalan"
     }
   ],
-  "Product": [
+  "products": [
     {
       "id": 1,
       "name": "Resident Evil 4 Remake",
@@ -64,9 +64,45 @@
       "release_date": "7 Februari 2023",
       "platformId": 3,
       "authorId": 3
+    },
+    {
+      "id": 4,
+      "name": "God of War Ragnarok",
+      "slug": "God-of-War-Ragnarok",
+      "description": "Sepanjang jalan mereka akan menjelajahi pemandangan mistis yang menakjubkan, mengumpulkan sekutu dari seluruh alam, dan menghadapi musuh yang menakutkan dalam bentuk dewa dan monster Norse. Saat ancaman Ragnarok semakin dekat, Kratos dan Atreus menemukan diri mereka memilih antara keselamatan keluarga mereka dan keamanan alam...",
+      "genre": "Action Adventure, General, Open World",
+      "publisher": "PlayStation Studios",
+      "mainImg": "https://www.gsshop.id/game/Game/PS5/GOWRagnarok_DisplayPS5.jpg",
+      "release_date": "7 Juli 2022",
+      "platformId": 1,
+      "authorId": 2
+    },
+    {
+      "id": 5,
+      "name": "Wo Long: Fallen Dynasty",
+      "slug": "Wo-Long-Fallen-Dynasty",
+      "description": "Wo Long: Fallen Dynasty follows the dramatic, action-packed story of a nameless militia soldier fighting for survival in a dark fantasy version of the Later Han Dynasty where demons plague the Three Kingdoms. Players fight off deadly creatures and enemy soldiers using swordplay based on the Chinese martial arts, attempting to overcome the odds by awakening the true power from within.",
+      "genre": "Action Adventure",
+      "publisher": "Koei Tecmo Games",
+      "mainImg": "https://www.gsshop.id/game/Game/PS5/WoLong-CoverPS4.jpg",
+      "release_date": "3 Maret 2023",
+      "platformId": 2,
+      "authorId": 1
+    },
+    {
+      "id": 6,
+      "name": "EVIL WEST",
+      "slug": "EVIL-WEST",
+      "description": "Sebuah ancaman gelap mengkonsumsi Old West. Dalam solo atau coop, bertarunglah dengan gaya dalam pertarungan yang mendalam dan eksplosif melawan monster yang haus darah. Membasmi gerombolan vampir dengan tantangan berbahan bakar petir Anda dan menjadi Superhero Wild West.",
+      "genre": "Action, General, Shooter, Third-Person, Arcade",
+      "publisher": "Focus Home Interactive",
+      "mainImg": "https://www.gsshop.id/game/Game/PS4/EvilWest-DisplayPS4.jpg",
+      "release_date": "20 September 2022",
+      "platformId": 2,
+      "authorId": 2
     }
   ],
-  "Platform": [
+  "platforms": [
     {
       "id": 1,
       "name": "PS5"
