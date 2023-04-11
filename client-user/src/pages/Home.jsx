@@ -30,7 +30,7 @@ function Homepage() {
                 <img className="h-auto content-center max-w-full rounded-lg" src={el.mainImg} alt="" />
               </div>
               <div className="flex justify-center">
-                <a href="#">{el.name}</a>
+                <p href="#">{el.name}</p>
               </div>
             </Link>
           })}
