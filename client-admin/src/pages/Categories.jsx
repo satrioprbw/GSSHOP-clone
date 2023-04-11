@@ -1,8 +1,8 @@
-import useFetch from "../components/useFetch"
+import useFetch from "../hooks/useFetch"
 
 export default function Categories() {
 
-  const {data} = useFetch('http://localhost:3000/Platform')
+  const {data} = useFetch('http://localhost:3000/platforms')
   return (
     <>
     <h5 className="text-4xl mb-10">Category List</h5>

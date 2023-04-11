@@ -1,6 +1,18 @@
 import React from "react"
+import useFetch from "../hooks/useFetch"
+import { useState } from "react"
+import { useEffect } from "react"
 
 function Navbar() {
+  const [selected, setSelected] = useState('PS5')
+  const {data} = useFetch('http://localhost:3000/platforms')
+
+  useEffect(() => {
+    function handleSelect(name){
+      setSelected(name)
+    }
+  })
+
   return (
     <nav className="bg-white border-gray-200">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
@@ -13,18 +25,13 @@ function Navbar() {
         </button>
         <div className="hidden w-full md:block md:w-auto" id="navbar-default">
           <ul className="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white ">
+            {data.map(el => {
+              return (
           <li>
-              <a href="#" className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0">PS5</a>
+              <a href="#" className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0">{el.name}</a>
             </li>
-            <li>
-              <a href="#" className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0">PS4</a>
-            </li>
-            <li>
-              <a href="#" className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0">NINTENDO SWITCH</a>
-            </li>
-            <li>
-              <a href="#" className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0">GAMING GEAR</a>
-            </li>
+              )
+            })}
             <li>
               <a href="#" className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0">EVENT</a>
             </li>

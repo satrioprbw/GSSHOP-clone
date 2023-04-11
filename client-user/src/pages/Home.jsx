@@ -1,12 +1,10 @@
 import React from "react"
-import useFetch from "../components/useFetch"
+import useFetch from "../hooks/useFetch"
 
 function Homepage() {
-  const { data } = useFetch("http://localhost:3000/Product")
-  console.log(data);
+  const { data } = useFetch("http://localhost:3000/products?_expand=platform&_expand=author")
   return (
     <>
-      {/* {console.log(data)}; */}
       <div className="grid ">
         <div className="flex flex-col">
           <div className="flex justify-center px-10 pt-5">
@@ -16,7 +14,7 @@ function Homepage() {
       </div>
       <div className="grid">
         <div className="flex flex-col">
-          <h1 className="py-8 text-4xl text-center">Coming Soon <span className="font-bold">Playstation 5</span></h1>
+          <h1 className="py-8 text-4xl text-center">Coming Soon <span className="font-bold">PS5</span></h1>
         </div>
       </div>
       <div>
