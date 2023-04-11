@@ -13,6 +13,10 @@ const router = createBrowserRouter([
         element: <Homepage />
       },
       {
+        path: '/:platform',
+        element: <Homepage />
+      },
+      {
         path: '/product',
         element: <ProductDetail />
       },
