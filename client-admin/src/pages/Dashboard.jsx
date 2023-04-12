@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react"
-import ModalGallery from "../components/ModalGallery"
-import ModalForm from "../components/ModalForm"
 import { useDispatch, useSelector } from "react-redux"
 import { fetchGameData, fetchPlatformData } from "../stores/actions/actionCreator"
+import ModalGallery from "../components/ModalGallery"
+import ModalForm from "../components/ModalForm"
 
 export default function Dashboard() {
 

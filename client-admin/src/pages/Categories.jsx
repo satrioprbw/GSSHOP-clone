@@ -1,5 +1,4 @@
 import { useDispatch, useSelector } from "react-redux"
-import useFetch from "../hooks/useFetch"
 import { useEffect } from "react"
 import { fetchPlatformData } from "../stores/actions/actionCreator"
 
