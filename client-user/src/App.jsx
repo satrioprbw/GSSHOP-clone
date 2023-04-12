@@ -1,22 +1,8 @@
-import React, { useEffect, useState } from "react" 
-import Navbar from "./components/Navbar.jsx"
-import Footer from "./components/Footer.jsx"
-import Homepage from "./pages/Home.jsx"
-import ProductDetail from "./pages/Detail.jsx"
-
-
+import { RouterProvider } from 'react-router-dom'
+import router from "./router"
 
 function App() {
-  const [data, setData] = useState([])
-
-  return (
-    <>
-    <Navbar />
-    <Homepage/>
-    {/* <ProductDetail /> */}
-    <Footer />
-    </>
-  )
+    return <RouterProvider router={router}/>
 }
 
 export default App
