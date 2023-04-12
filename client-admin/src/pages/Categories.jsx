@@ -11,7 +11,7 @@ export default function Categories() {
     dispatch(fetchPlatformData())
   }, [])
 
-  const data = useSelector(state => state.platform.platform)
+  const data = useSelector(state => state.platform.dataPlatform)
 
   return (
     <>

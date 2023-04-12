@@ -18,8 +18,8 @@ export default function Dashboard() {
     dispatch(fetchPlatformData())
   }, [])
   
-  const data = useSelector(state => state.game.game)
-  const dataPlatform = useSelector(state => state.platform.platform)
+  const data = useSelector(state => state.game.dataGame)
+  const dataPlatform = useSelector(state => state.platform.dataPlatform)
 
   return (
     <>

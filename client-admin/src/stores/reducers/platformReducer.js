@@ -1,11 +1,11 @@
-const defaultValue = { platform: [] }
+const defaultValue = { dataPlatform: [] }
 
 export default function platformReducer(state = defaultValue, action) {
   switch (action.type) {
     case 'fetch/platform':
       return {
         ...state,
-        platform: action.payload
+        dataPlatform: action.payload
       }
     default:
       return state

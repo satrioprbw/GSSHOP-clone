@@ -1,11 +1,11 @@
-const defaultValue = { game: [] }
+const defaultValue = { dataGame: [] }
 
 export default function gameReducer(state = defaultValue, action) {
   switch (action.type) {
     case 'fetch/game':
       return {
         ...state,
-        game: action.payload
+        dataGame: action.payload
       }
     default:
       return state
