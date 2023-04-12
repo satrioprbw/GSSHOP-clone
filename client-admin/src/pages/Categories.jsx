@@ -5,14 +5,13 @@ import { fetchPlatformData } from "../stores/actions/actionCreator"
 
 export default function Categories() {
 
-  // const data = useFetch('http://localhost:3000/platforms', 'platform')
   const dispatch = useDispatch()
 
   useEffect(() => {
     dispatch(fetchPlatformData())
   }, [])
 
-  const data = useSelector(state => state.platform)
+  const data = useSelector(state => state.platform.platform)
 
   return (
     <>

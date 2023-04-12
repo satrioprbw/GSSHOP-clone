@@ -31,7 +31,6 @@ export default function useFetch(url, itemName) {
       })
   }, [data, itemName])
 
-  return {
-    data
-  }
+  return data
+  
 }
