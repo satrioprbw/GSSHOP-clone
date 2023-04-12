@@ -105,15 +105,21 @@
   "platforms": [
     {
       "id": 1,
-      "name": "PS5"
+      "name": "PS5",
+      "createdAt": "10-4-2023",
+      "updatedAt": "10-4-2023"
     },
     {
       "id": 2,
-      "name": "PS4"
+      "name": "PS4",
+      "createdAt": "10-4-2023",
+      "updatedAt": "10-4-2023"
     },
     {
       "id": 3,
-      "name": "Nintendo Switch"
+      "name": "Nintendo Switch",
+      "createdAt": "10-4-2023",
+      "updatedAt": "10-4-2023"
     }
   ],
   "images": [
