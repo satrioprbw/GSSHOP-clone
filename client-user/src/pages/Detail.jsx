@@ -3,12 +3,11 @@ import useFetch from "../hooks/useFetch"
 import { useParams } from "react-router-dom"
 
 function ProductDetail() {
-  let { data } = useFetch("http://localhost:3000/products?_expand=platform&_embed=images")
+  let { data } = useFetch("http://localhost:3000/products?_expand=platform&_embed=images", 'game')
   const { slug } = useParams()
   data = data.filter(el => el.slug === slug)
 
   function Gallery() {
-    event.preventDefault()
     const [selectedImage, setSelectedImage] = useState(
       data[0]?.images[0]?.imgUrl
     );
@@ -29,7 +28,7 @@ function ProductDetail() {
         <div className="grid grid-cols-5 gap-4">
           {images?.map((image) => (
             <div key={image}>
-              <a href="">
+              <a >
               <img
                 className="h-auto max-w-full rounded-lg"
                 src={image}

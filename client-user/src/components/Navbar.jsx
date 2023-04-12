@@ -5,7 +5,7 @@ import { Link } from "react-router-dom"
 
 function Navbar() {
   const [selected, setSelected] = useState('PS5')
-  const {data} = useFetch('http://localhost:3000/platforms')
+  const {data} = useFetch('http://localhost:3000/platforms', 'platform')
 
  
   function handleSelect(name){

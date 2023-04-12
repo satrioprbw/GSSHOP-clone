@@ -3,7 +3,7 @@ import useFetch from "../hooks/useFetch"
 import { Link, useParams } from "react-router-dom"
 
 function Homepage() {
-  let { data } = useFetch("http://localhost:3000/products?_expand=platform&_expand=author")
+  let { data } = useFetch("http://localhost:3000/products?_expand=platform&_expand=author", "game")
   const { platform } = useParams()
   if(platform){
     data = data.filter(el => el.platform.name === platform )
