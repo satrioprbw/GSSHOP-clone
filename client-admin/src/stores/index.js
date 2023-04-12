@@ -1,5 +1,6 @@
-import { legacy_createStore as createStore } from 'redux'
+import { applyMiddleware, legacy_createStore as createStore } from 'redux'
 import rootReducer from './reducers/rootReducer'
+import thunk from 'redux-thunk'
 
 /**
  * This is a reducer - a function that takes a current state value and an
@@ -16,7 +17,7 @@ import rootReducer from './reducers/rootReducer'
 
 // Create a Redux store holding the state of your app.
 // Its API is { subscribe, dispatch, getState }.
-const store = createStore(rootReducer)
+const store = createStore(rootReducer, applyMiddleware(thunk))
 export default store
 
 // You can use subscribe() to update the UI in response to state changes.

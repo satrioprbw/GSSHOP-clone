@@ -1,18 +1,27 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import useFetch from "../hooks/useFetch"
 import ModalGallery from "../components/ModalGallery"
 import ModalForm from "../components/ModalForm"
+import { useDispatch, useSelector } from "react-redux"
+import { fetchGameData, fetchPlatformData } from "../stores/actions/actionCreator"
 
 export default function Dashboard() {
 
-  const data  = useFetch('http://localhost:3000/products?_expand=platform&_expand=author&_embed=images', 'game')
-  const dataPlatform = useFetch('http://localhost:3000/platforms', 'platform')
+  // const data  = useFetch('http://localhost:3000/products?_expand=platform&_expand=author&_embed=images', 'game')
+  // const dataPlatform = useFetch('http://localhost:3000/platforms', 'platform')
   const [image, setImage] = useState([])
+  const dispatch = useDispatch()
   
   function handleImage(data) {
     setImage(data)
   }
 
+  useEffect(() => {
+    dispatch(fetchGameData())
+    dispatch(fetchPlatformData())
+  }, [])
+  const data = useSelector(state => state.game)
+  const dataPlatform = useSelector(state => state.platform)
   return (
     <>
       <div>
