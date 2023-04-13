@@ -1,18 +1,8 @@
-const defaultValue = { game: [], platform: [] }
+import { combineReducers } from "redux"
+import gameReducer from './gameReducer'
+import platformReducer from './platformReducer'
 
-export default function rootReducer(state = defaultValue, action) {
-  switch (action.type) {
-    case 'fetch/game':
-      return {
-        ...state,
-        game: action.payload
-      }
-    case 'fetch/platform':
-      return {
-        ...state,
-        platform: action.payload
-      }
-    default:
-      return state
-  }
-}
+export default combineReducers({
+  game: gameReducer,
+  platform: platformReducer
+})

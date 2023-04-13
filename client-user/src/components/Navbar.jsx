@@ -4,20 +4,13 @@ import { useDispatch, useSelector } from "react-redux"
 import { fetchPlatformData } from "../stores/actions/actionCreator"
 
 function Navbar() {
-  // const data = useFetch('http://localhost:3000/platforms', 'platform')
-  const [selected, setSelected] = useState('PS5')
   const dispatch = useDispatch()
 
   useEffect(() => {
     dispatch(fetchPlatformData())
   }, [])
 
-  const data = useSelector(state => state.platform)
- 
-  function handleSelect(name){
-    setSelected(name)
-  }
-
+  const data = useSelector(state => state.platform.dataPlatform)
 
   return (
     <nav className="bg-white border-gray-200">

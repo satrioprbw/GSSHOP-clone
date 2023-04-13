@@ -5,7 +5,6 @@ import { fetchGameData } from "../stores/actions/actionCreator"
 import { useDispatch } from "react-redux"
 
 function ProductDetail() {
-  // let  data  = useFetch("http://localhost:3000/products?_expand=platform&_embed=images", 'game')
   const { slug } = useParams()
   const dispatch = useDispatch()
   
@@ -13,15 +12,15 @@ function ProductDetail() {
     dispatch(fetchGameData())
   }, [])
   
-  let data = useSelector(state => state.game)
+  let data = useSelector(state => state.game.dataGame)
   data = data.filter(el => el.slug === slug)
 
   function Gallery() {
     const [selectedImage, setSelectedImage] = useState(
-      data[0].images[0].imgUrl
+      data[0]?.images[0]?.imgUrl
       );
       
-      const images = data[0].images.map(el => {
+      const images = data[0]?.images.map(el => {
         return el.imgUrl
       });
 
@@ -40,7 +39,7 @@ function ProductDetail() {
           />
         </div>
         <div className="grid grid-cols-5 gap-4">
-          {images.map((image) => (
+          {images?.map((image) => (
             <div key={image}>
               <a href="#">
               <img
@@ -65,16 +64,16 @@ function ProductDetail() {
           <Gallery />
 
           <div className="flex flex-col ps-10">
-            <h1 className="text-3xl font-bold mb-5">{data[0].name}</h1>
-            <p>Genre        : {data[0].genre}</p>
-            <p>Platform     : {data[0].platform.name}</p>
-            <p>Publisher    : {data[0].publisher}</p>
-            <p>Release Date : {data[0].release_date}</p>
+            <h1 className="text-3xl font-bold mb-5">{data[0]?.name}</h1>
+            <p>Genre        : {data[0]?.genre}</p>
+            <p>Platform     : {data[0]?.platform.name}</p>
+            <p>Publisher    : {data[0]?.publisher}</p>
+            <p>Release Date : {data[0]?.release_date}</p>
           </div>
         </div>
         <div className="ps-10 pt-10 pb-10">
           <h1 className="text-3xl py-5">Sinopsis</h1>
-          <p className="py-3">{data[0].description}</p>
+          <p className="py-3">{data[0]?.description}</p>
         </div>
       </div>
     </>

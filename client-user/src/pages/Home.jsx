@@ -7,8 +7,8 @@ import { fetchGameData } from "../stores/actions/actionCreator"
 function Homepage() {
   // let data = useFetch("http://localhost:3000/products?_expand=platform&_expand=author", "game")
   const dispatch = useDispatch()
-  let data = useSelector(state => state.game)
   const { platform } = useParams()
+  let data = useSelector(state => state.game.dataGame)
 
   useEffect(() => {
     dispatch(fetchGameData())
