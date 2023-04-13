@@ -1,17 +1,16 @@
-import React from "react"
-import useFetch from "../hooks/useFetch"
-import { useState } from "react"
+import React, { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
+import { useDispatch, useSelector } from "react-redux"
+import { fetchPlatformData } from "../stores/actions/actionCreator"
 
 function Navbar() {
-  const [selected, setSelected] = useState('PS5')
-  const {data} = useFetch('http://localhost:3000/platforms')
+  const dispatch = useDispatch()
 
- 
-  function handleSelect(name){
-    setSelected(name)
-  }
+  useEffect(() => {
+    dispatch(fetchPlatformData())
+  }, [])
 
+  const data = useSelector(state => state.platform.dataPlatform)
 
   return (
     <nav className="bg-white border-gray-200">

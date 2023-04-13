@@ -1,21 +1,33 @@
-import React, { useState } from "react"
-import useFetch from "../hooks/useFetch"
+import React, { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
+import { useSelector } from "react-redux"
+import { fetchGameData } from "../stores/actions/actionCreator"
+import { useDispatch } from "react-redux"
 
 function ProductDetail() {
-  let { data } = useFetch("http://localhost:3000/products?_expand=platform&_embed=images")
   const { slug } = useParams()
+  const dispatch = useDispatch()
+  
+  useEffect(() => {
+    dispatch(fetchGameData())
+  }, [])
+  
+  let data = useSelector(state => state.game.dataGame)
   data = data.filter(el => el.slug === slug)
 
   function Gallery() {
-    event.preventDefault()
     const [selectedImage, setSelectedImage] = useState(
       data[0]?.images[0]?.imgUrl
-    );
-  
-    const images = data[0]?.images?.map(el => {
-      return el.imgUrl
-    });
+      );
+      
+      const images = data[0]?.images.map(el => {
+        return el.imgUrl
+      });
+
+      function handleImage(e, image){
+        e.preventDefault()
+        setSelectedImage(image)
+      }
   
     return (
       <div className="grid gap-4">
@@ -29,12 +41,12 @@ function ProductDetail() {
         <div className="grid grid-cols-5 gap-4">
           {images?.map((image) => (
             <div key={image}>
-              <a href="">
+              <a href="#">
               <img
                 className="h-auto max-w-full rounded-lg"
                 src={image}
                 alt=""
-                onClick={() => setSelectedImage(image)}
+                onClick={(e) => handleImage(e, image)}
               />
               </a>
             </div>
