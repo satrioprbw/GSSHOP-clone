@@ -1,0 +1,23 @@
+[
+  {
+    "username": "john123",
+    "email": "john@wick.com",
+    "password": "12345",
+    "phoneNumber": "0812212122",
+    "address": "Jl. React Intro"
+  },
+  {
+    "username": "ladyjane",
+    "email": "jane@mail.com",
+    "password": "12345",
+    "phoneNumber": "08123232453",
+    "address": "Jl. Pemuda"
+  },
+  {
+    "username": "keanu",
+    "email": "keanu@reeves.com",
+    "password": "12345",
+    "phoneNumber": "0893248787",
+    "address": "Jl. Semilir"
+  }
+]

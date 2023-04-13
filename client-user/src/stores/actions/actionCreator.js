@@ -1,3 +1,4 @@
+import actionType from './actionType'
 
 function fetchGame(payload) {
   return {
