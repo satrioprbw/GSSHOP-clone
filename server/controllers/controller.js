@@ -66,7 +66,19 @@ class Controller {
 
   static async fetchProducts(req, res) {
     try {
-      const data = await Product.findAll()
+      const data = await Product.findAll({ include: [Platform, User] })
+      res.status(200).json(data)
+    } catch (error) {
+      console.log(error);
+      res.status(500).json({
+        message: 'Internal server error'
+      })
+    }
+  }
+
+  static async fetchPlatforms(req, res) {
+    try {
+      const data = await Platform.findAll()
       res.status(200).json(data)
     } catch (error) {
       console.log(error);
@@ -79,16 +91,26 @@ class Controller {
   static async createProducts(req, res) {
     const t = await sequelize.transaction();
     try {
-      const { name, description, genre, publisher, mainImg, release_date, imgUrl, slug } = req.body
-      console.log(imgUrl);
-      const product = await Product.create({
+      const {
         name,
-        slug,
         description,
         genre,
         publisher,
         mainImg,
-        release_date
+        release_date,
+        imgUrl,
+        platformId } = req.body
+
+      const product = await Product.create({
+        name,
+        slug: slugify(name),
+        description,
+        genre,
+        publisher,
+        mainImg,
+        release_date,
+        authorId: req.user.id,
+        platformId
       }, { transaction: t })
 
       const image =
@@ -98,11 +120,64 @@ class Controller {
         }));
 
       await Image.bulkCreate(image, { transaction: t })
+
       await t.commit();
       res.status(200).json({ message: 'Success create product' })
     } catch (error) {
       console.log(error);
       await t.rollback();
+      
+      if (error.name === 'SequelizeValidationError') {
+        res.status(400).json({
+          message: error.errors[0].message
+        })
+      } else {
+        console.log(error);
+        res.status(500).json({
+          message: 'Internal server error'
+        })
+      }
+    }
+  }
+
+  static async createPlatforms(req, res) {
+    try {
+      const { name } = req.body
+      const data = await Platform.create({ name })
+      res.status(200).json({ message: 'Success create platform' })
+    } catch (error) {
+      console.log(error);
+      if (error.name === 'SequelizeValidationError') {
+        res.status(400).json({
+          message: error.errors[0].message
+        })
+      } else {
+        console.log(error);
+        res.status(500).json({
+          message: 'Internal server error'
+        })
+      }
+    }
+  }
+
+  static async deleteProducts(req, res) {
+    try {
+      const { id } = req.params
+      const theProduct = await Product.findByPk(id)
+      if (!theProduct) {
+        res.status(404).json({
+          message: "Data not found"
+        })
+      }
+      const deleting = await Product.destroy({ where: { id } })
+      res.status(200).json({
+        message: 'Product has been successfully deleted'
+      })
+    } catch (error) {
+      console.log(error);
+      res.status(500).json({
+        message: "Internal server error"
+      })
     }
   }
 }

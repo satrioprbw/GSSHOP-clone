@@ -13,7 +13,7 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       Product.belongsTo(models.User, {foreignKey: 'authorId'})
       Product.belongsTo(models.Platform, {foreignKey: 'platformId'})
-      Product.hasMany(models.Image, {foreignKey: 'productId'})
+      Product.hasMany(models.Image, {foreignKey: 'productId', onDelete: 'CASCADE', hooks: true})
     }
   }
   Product.init({
@@ -107,8 +107,8 @@ module.exports = (sequelize, DataTypes) => {
     sequelize,
     modelName: 'Product',
   });
-  Product.beforeCreate(el => {
-    el.slug = slugify(el.name)
-  } )
+  // Product.beforeCreate(el => {
+  //   el.slug = slugify(el.name)
+  // } )
   return Product;
 };

@@ -18,7 +18,7 @@ const baseUrl = 'http://localhost:3000'
 export function fetchGameData(){
   return async(dispatch, getState) => {
     try {
-      const response = await fetch(baseUrl + '/products?_expand=platform&_expand=author&_embed=images')
+      const response = await fetch(baseUrl + '/products')
       const jsonData = await response.json()
       dispatch(fetchGame(jsonData))
     } catch (error) {

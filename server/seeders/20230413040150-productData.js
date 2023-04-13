@@ -1,5 +1,7 @@
 'use strict';
 
+const { default: slugify } = require('slugify');
+
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up (queryInterface, Sequelize) {
@@ -7,7 +9,8 @@ module.exports = {
       return {
         ...el,
         createdAt: new Date(),
-        updatedAt: new Date()
+        updatedAt: new Date(),
+        slug: slugify(el.name)
       }
     })
     await queryInterface.bulkInsert('Products', products, {})
