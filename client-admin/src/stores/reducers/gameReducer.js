@@ -7,6 +7,11 @@ export default function gameReducer(state = defaultValue, action) {
         ...state,
         dataGame: action.payload
       }
+    case 'add/game':
+      return {
+        ...state,
+        
+      }
     default:
       return state
   }

@@ -61,19 +61,19 @@ export default function Dashboard() {
                       {el.name}
                     </th>
                     <td className="px-6 py-4">
-                      {el.platform.name}
+                      {el.Platform.name}
                     </td>
                     <td className="px-6 py-4">
                       {el.genre}
                     </td>
                     <td className="px-6 py-4">
-                      {el.author.username}
+                      {el.User.username}
                     </td>
                     <td className="px-6 py-4">
                       <img src={el.mainImg} alt="" />
                     </td>
                     <td className="px-6 py-4">
-                      <label onClick={() => handleImage(el.images)} htmlFor="my-modal" className="btn">More Images</label>
+                      <label onClick={() => handleImage(el.Images)} htmlFor="my-modal" className="btn">More Images</label>
                     </td>
                     <td className="px-6 py-4">
                       <a href="#" className="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>

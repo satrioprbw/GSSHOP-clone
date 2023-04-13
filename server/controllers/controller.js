@@ -66,7 +66,7 @@ class Controller {
 
   static async fetchProducts(req, res) {
     try {
-      const data = await Product.findAll({ include: [Platform, User] })
+      const data = await Product.findAll({ include: [Platform, User, Image] })
       res.status(200).json(data)
     } catch (error) {
       console.log(error);
@@ -113,11 +113,17 @@ class Controller {
         platformId
       }, { transaction: t })
 
-      const image =
-        imgUrl.map(el => ({
-          imgUrl: el,
-          productId: product.id
-        }));
+      let image = '' 
+      console.log(typeof imgUrl);
+      if(typeof imgUrl === 'object'){
+         image =
+          imgUrl.map(el => ({
+            imgUrl: el,
+            productId: product.id
+          }));
+      } else {
+         image = [imgUrl]
+      }
 
       await Image.bulkCreate(image, { transaction: t })
 
