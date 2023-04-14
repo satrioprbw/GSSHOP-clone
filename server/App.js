@@ -3,11 +3,8 @@ const Controller = require('./controllers/controller')
 const cors = require('cors')
 const authentication = require('./middlewares/authentication')
 const app = express()
-<<<<<<< HEAD
 const port = process.env.PORT || 3000
-=======
-const port = 3000
->>>>>>> 7a5621ea629f2c08f5a30cf0651ddff6c8a4d855
+
 
 app.use(cors())
 app.use(express.json())
