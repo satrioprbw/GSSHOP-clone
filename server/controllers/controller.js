@@ -113,17 +113,12 @@ class Controller {
         platformId
       }, { transaction: t })
 
-      let image = '' 
-      console.log(typeof imgUrl);
-      if(typeof imgUrl === 'object'){
-         image =
-          imgUrl.map(el => ({
-            imgUrl: el,
-            productId: product.id
-          }));
-      } else {
-         image = [imgUrl]
-      }
+      const image =
+        imgUrl.map(el => ({
+          imgUrl: el,
+          productId: product.id
+        }));
+
 
       await Image.bulkCreate(image, { transaction: t })
 
@@ -132,7 +127,7 @@ class Controller {
     } catch (error) {
       console.log(error);
       await t.rollback();
-      
+
       if (error.name === 'SequelizeValidationError') {
         res.status(400).json({
           message: error.errors[0].message

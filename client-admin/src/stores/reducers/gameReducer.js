@@ -10,7 +10,7 @@ export default function gameReducer(state = defaultValue, action) {
     case 'add/game':
       return {
         ...state,
-        
+        access_token: action.payload
       }
     default:
       return state

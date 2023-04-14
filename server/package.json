@@ -9,5 +9,17 @@
     "sequelize": "^6.31.0",
     "sequelize-cli": "^6.6.0",
     "slugify": "^1.6.6"
-  }
+  },
+  "name": "server",
+  "version": "1.0.0",
+  "main": "App.js",
+  "devDependencies": {},
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
 }

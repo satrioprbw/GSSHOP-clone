@@ -1,22 +1,23 @@
 import { redirect, useNavigate } from "react-router-dom"
+import { FETCH_PRODUCT_SUCCEEDED, FETCH_PLATFORM_SUCCEEDED, LOGIN_USER_SUCCEEDED } from "./actionType"
 
 function fetchGame(payload) {
   return {
-    type: 'fetch/game',
+    type: FETCH_PRODUCT_SUCCEEDED,
     payload
   }
 }
 
 function fetchPlatform(payload) {
   return {
-    type: 'fetch/platform',
+    type: FETCH_PLATFORM_SUCCEEDED,
     payload
   }
 }
 
 function login(payload) {
   return {
-    type: 'user/login',
+    type: LOGIN_USER_SUCCEEDED,
     payload
   }
 }
@@ -88,6 +89,24 @@ export function handleLogin(inputLogin) {
         throw { name: 'invalidToken' }
       }
       localStorage.access_token = jsonData.access_token
+      dispatch(login(jsonData.access_token))
+    } catch (error) {
+      console.log(error);
+    }
+  }
+}
+
+export function handleRegister(inputRegister) {
+  return async (dispatch, getState) => {
+    try {
+      const response = await fetch(baseUrl + '/register', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(inputRegister)
+      });
+      const jsonData = await response.json()
       redirect('/')
     } catch (error) {
       console.log(error);

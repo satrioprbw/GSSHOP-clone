@@ -8,52 +8,38 @@ import Layout from '../components/Layout'
 const router = createBrowserRouter([
   {
     element: <Layout />,
+    loader: async () => {
+      const user = await localStorage.access_token
+      if (!user) {
+        return redirect('/login')
+      }
+      return null
+    },
     children: [
       {
         path: '/',
-        element: <Dashboard />,
-        loader: async () => {
-          const user = await localStorage.access_token
-          if (!user) {
-            return redirect('/login')
-          }
-          return <Dashboard />
-        }
-      },
-      {
-        path: '/login',
-        element: <Login />,
-        loader: async () => {
-          const user = await localStorage.access_token
-          if (user) {
-            return redirect('/')
-          }
-          return null
-        }
+        element: <Dashboard />
       },
       {
         path: '/register',
-        element: <Register />,
-        loader: async () => {
-          const user = await localStorage.access_token
-          if (!user) {
-            return redirect('/login')
-          }
-          return <Register />
-        }
+        element: <Register />
       },
       {
         path: '/categories',
-        element: <Categories />,
-        loader: async () => {
-          const user = await localStorage.access_token
-          if (!user) {
-            return redirect('/login')
-          }
-          return <Categories />
-        }
+        element: <Categories />
       }
     ]
+  },
+  {
+    path: '/login',
+    element: <Login />,
+    loader: async () => {
+      const user = await localStorage.access_token
+      if (user) {
+        return redirect('/')
+      }
+      return null
+    }
   },
 
 ])

@@ -16,6 +16,7 @@ export default function Categories() {
     <>
       <h5 className="text-4xl mb-10">Category List</h5>
       <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
+      <label htmlFor="addProduct" className="btn justify-end mb-5">+ Add Category</label>
         <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
           <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
 
@@ -57,13 +58,11 @@ export default function Categories() {
                     <a href="#" className="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
                   </td>
                 </tr>
-
               )
             })}
           </tbody>
         </table>
       </div>
-
     </>
 
   )
