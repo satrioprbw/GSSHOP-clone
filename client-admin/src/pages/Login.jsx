@@ -1,11 +1,13 @@
 import { useState } from "react"
 import { handleLogin } from "../stores/actions/actionCreator"
 import { redirect, useNavigate } from "react-router-dom"
-import { useDispatch } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 
 export default function Login() {
   const navigate = useNavigate()
   const dispatch = useDispatch()
+  const token = useSelector(state => state.user.access_token)
+
   const [loginInput, setLoginInput] = useState({
     email: '',
     password: ''
@@ -19,12 +21,14 @@ export default function Login() {
     }));
   };
 
-  function handleSubmit(event){
-    event.preventDefault()
+  function handleSubmit(e){
+    e.preventDefault()
 
     dispatch(handleLogin(loginInput))
+    .then(res => {
+      navigate('/')
+    })
 
-    redirect('/')
 
   }
 
@@ -32,7 +36,7 @@ export default function Login() {
   return (
     <div className="flex justify-center">
       <div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700">
-        <form onSubmit={handleSubmit} className="space-y-6" action="#">
+        <form onSubmit={handleSubmit} className="space-y-6">
           <img src="https://www.gsshop.id/img/logo.png" className="h-10 text-center max-w-lg mx-auto" alt="GSSHOP Logo" />
           <h5 className="text-xl font-medium text-gray-900 dark:text-white">Sign in to our platform</h5>
           <div>
