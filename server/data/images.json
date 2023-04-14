@@ -1,0 +1,34 @@
+[
+  {
+    "productId": 1,
+    "imgUrl": "https://img.youtube.com/vi/XrgTFWJHUWI/maxresdefault.jpg"
+  },
+  {
+    "productId": 1,
+    "imgUrl": "https://cdn.mos.cms.futurecdn.net/M4TUkUCV7vshpgVaHpE6me.jpg"
+  },
+  {
+    "productId": 2,
+    "imgUrl": "https://gameranx.com/wp-content/uploads/2023/01/star-wars-jedi-survivor-pc-game-origin-cover.webp"
+  },
+  {
+    "productId": 2,
+    "imgUrl": "https://9to5google.com/wp-content/uploads/sites/4/2023/04/star-wars-jedi-survivor-1.jpg?quality=82&strip=all"
+  },
+  {
+    "productId": 3,
+    "imgUrl": "https://cdn.eraspace.com/pub/media/mageplaza/blog/post/2/0/202205251416-main.cropped_1653463005.jpg"
+  },
+  {
+    "productId": 3,
+    "imgUrl": "https://s.yimg.com/uu/api/res/1.2/4ZmrQdcOWkXYr3XkxhjP.w--~B/aD0xMDgwO3c9MTkyMDthcHBpZD15dGFjaHlvbg--/https://media-mbst-pub-ue1.s3.amazonaws.com/creatr-uploaded-images/2023-02/45988920-a96c-11ed-bb7e-d4c44f26d91d.cf.jpg"
+  },
+  {
+    "productId": 4,
+    "imgUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202207/1117/4uH3OH4dQtHMe2gmdFuth02u.jpg"
+  },
+  {
+    "productId": 4,
+    "imgUrl": "https://gamingbolt.com/wp-content/uploads/2022/11/God-of-War-Ragnarok-image-2.jpg"
+  }
+]

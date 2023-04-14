@@ -1,0 +1,62 @@
+[
+  {
+    "name": "Resident Evil 4 Remake",
+    "description": "Survival is just the beginning. Resident Evil 4 is a remake of the 2005 original Resident Evil 4. Reimagined for 2023 to bring state-of-the-art survival horror. Resident Evil 4 preserves the essence of the original game while introducing modernized gameplay, a reimagined storyline, and vividly detailed graphics to make this the latest survival horror game where life and death, terror, and catharsis intersect.",
+    "genre": "Horror",
+    "publisher": "Capcom",
+    "mainImg": "https://www.gsshop.id/game/Game/PS5/RE4Remake-CoverPS5.jpg",
+    "release_date": "24 Maret 2023",
+    "platformId": 1,
+    "authorId": 1
+  },
+  {
+    "name": "Star Wars Jedi: Survivor",
+    "description": "The story of Cal Kestis continues in Star Wars Jedi: Survivor, a third-person galaxy-spanning action-adventure game from Respawn Entertainment, developed in collaboration with Lucasfilm Games. This narratively-driven, single-player title picks up five years after the events of Star Wars Jedi: Fallen Order and follows Cal's increasingly desperate fight as the galaxy descends further into darkness. Pushed to the edges of the galaxy by the Empire, Cal will find himself surrounded by threats new and familiar.",
+    "genre": "Action Adventure",
+    "publisher": "Electronic Arts",
+    "mainImg": "https://www.gsshop.id/game/Game/PS5/StarWarsJediSurvivor-Cover.jpg",
+    "release_date": "17 Maret 2023",
+    "platformId": 1,
+    "authorId": 2
+  },
+  {
+    "name": "Hogwarts Legacy",
+    "description": "Rasakan kisah baru yang berlatar di Hogwarts pada tahun 1800-an. Karakter Anda adalah seorang siswa yang memegang kunci rahasia kuno yang mengancam untuk menghancurkan dunia sihir. Buat sekutu, lawan penyihir Hitam, dan tentukan nasib dunia sihir.",
+    "genre": "Action Adventure, Open-World",
+    "publisher": "Warner Bros. Games",
+    "mainImg": "https://www.gsshop.id/game/Game/NS/HogwartLegacy-DisplayNS.jpg",
+    "release_date": "7 Februari 2023",
+    "platformId": 3,
+    "authorId": 3
+  },
+  {
+    "name": "God of War Ragnarok",
+    "description": "Sepanjang jalan mereka akan menjelajahi pemandangan mistis yang menakjubkan, mengumpulkan sekutu dari seluruh alam, dan menghadapi musuh yang menakutkan dalam bentuk dewa dan monster Norse. Saat ancaman Ragnarok semakin dekat, Kratos dan Atreus menemukan diri mereka memilih antara keselamatan keluarga mereka dan keamanan alam...",
+    "genre": "Action Adventure, General, Open World",
+    "publisher": "PlayStation Studios",
+    "mainImg": "https://www.gsshop.id/game/Game/PS5/GOWRagnarok_DisplayPS5.jpg",
+    "release_date": "7 Juli 2022",
+    "platformId": 1,
+    "authorId": 2
+  },
+  {
+    "name": "Wo Long: Fallen Dynasty",
+    "description": "Wo Long: Fallen Dynasty follows the dramatic, action-packed story of a nameless militia soldier fighting for survival in a dark fantasy version of the Later Han Dynasty where demons plague the Three Kingdoms. Players fight off deadly creatures and enemy soldiers using swordplay based on the Chinese martial arts, attempting to overcome the odds by awakening the true power from within.",
+    "genre": "Action Adventure",
+    "publisher": "Koei Tecmo Games",
+    "mainImg": "https://www.gsshop.id/game/Game/PS5/WoLong-CoverPS4.jpg",
+    "release_date": "3 Maret 2023",
+    "platformId": 2,
+    "authorId": 1
+  },
+  {
+    "name": "EVIL WEST",
+    "description": "Sebuah ancaman gelap mengkonsumsi Old West. Dalam solo atau coop, bertarunglah dengan gaya dalam pertarungan yang mendalam dan eksplosif melawan monster yang haus darah. Membasmi gerombolan vampir dengan tantangan berbahan bakar petir Anda dan menjadi Superhero Wild West.",
+    "genre": "Action, General, Shooter, Third-Person, Arcade",
+    "publisher": "Focus Home Interactive",
+    "mainImg": "https://www.gsshop.id/game/Game/PS4/EvilWest-DisplayPS4.jpg",
+    "release_date": "20 September 2022",
+    "platformId": 2,
+    "authorId": 2
+  }
+]

@@ -1,4 +1,5 @@
 
+
 function fetchGame(payload) {
   return {
     type: 'fetch/game',
@@ -18,7 +19,7 @@ const baseUrl = 'http://localhost:3000'
 export function fetchGameData(){
   return async(dispatch, getState) => {
     try {
-      const response = await fetch(baseUrl + '/products?_expand=platform&_expand=author&_embed=images')
+      const response = await fetch(baseUrl + '/pub/products')
       const jsonData = await response.json()
       dispatch(fetchGame(jsonData))
     } catch (error) {
@@ -30,7 +31,7 @@ export function fetchGameData(){
 export function fetchPlatformData(){
   return async(dispatch, getState) => {
     try {
-      const response = await fetch(baseUrl + '/platforms')
+      const response = await fetch(baseUrl + '/pub/platforms')
       const jsonData = await response.json()
       dispatch(fetchPlatform(jsonData))
     } catch (error) {

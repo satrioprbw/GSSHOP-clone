@@ -18,7 +18,7 @@ Target:
 - [X] React: Class Component vs Function Component
 - [X] Mempelajari State menggunakan useState
 - [X] Mengirim Props baik berupa sebuah state atau function
-- [ ] Event Handling (onClick, onChange, onSubmit)
+- [X] Event Handling (onClick, onChange, onSubmit)
 - [X] Conditional Rendering di dalam React
 - [X] Looping List of Data di dalam React
 - [ ] Lifecycle component menggunakan useEffect

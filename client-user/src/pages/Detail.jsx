@@ -17,10 +17,10 @@ function ProductDetail() {
 
   function Gallery() {
     const [selectedImage, setSelectedImage] = useState(
-      data[0]?.images[0]?.imgUrl
+      data[0]?.Images[0]?.imgUrl
       );
       
-      const images = data[0]?.images.map(el => {
+      const images = data[0]?.Images.map(el => {
         return el.imgUrl
       });
 
@@ -65,10 +65,10 @@ function ProductDetail() {
 
           <div className="flex flex-col ps-10">
             <h1 className="text-3xl font-bold mb-5">{data[0]?.name}</h1>
-            <p>Genre        : {data[0]?.genre}</p>
-            <p>Platform     : {data[0]?.platform.name}</p>
-            <p>Publisher    : {data[0]?.publisher}</p>
-            <p>Release Date : {data[0]?.release_date}</p>
+            <p className="pb-2">Genre        : {data[0]?.genre}</p>
+            <p className="pb-2">Platform     : {data[0]?.Platform.name}</p>
+            <p className="pb-2">Publisher    : {data[0]?.publisher}</p>
+            <p className="pb-2">Release Date : {data[0]?.release_date}</p>
           </div>
         </div>
         <div className="ps-10 pt-10 pb-10">
