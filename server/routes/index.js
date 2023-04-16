@@ -20,6 +20,4 @@ router.use(authentication)
 router.use('/products', products)
 router.use('/platforms', platforms)
 
-
-
 module.exports = router

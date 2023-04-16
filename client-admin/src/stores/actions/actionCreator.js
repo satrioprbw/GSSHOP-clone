@@ -65,7 +65,7 @@ function deletePlatforms(payload) {
   }
 }
 
-const baseUrl = 'http://localhost:3000'
+const baseUrl = 'https://gsshopstore.my.id'
 
 export function handleLogin(inputLogin) {
   return async (dispatch, getState) => {
