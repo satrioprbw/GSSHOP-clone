@@ -15,7 +15,7 @@ function fetchPlatform(payload) {
   }
 }
 
-const baseUrl = 'http://localhost:3000'
+const baseUrl = 'https://gsshopstore.my.id'
 
 export function fetchGameData() {
   return async (dispatch, getState) => {
