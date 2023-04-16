@@ -1,13 +1,10 @@
-import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 
 export default function Navbar() {
   const navigate = useNavigate()
-  const dispatch = useDispatch()
-
   function handleLogout() {
-    dispatch(handleLogout())
-      navigate('/login')
+    localStorage.clear()
+    navigate('/login')
   }
 
   return (
@@ -39,6 +36,5 @@ export default function Navbar() {
         </div>
       </div>
     </nav>
-
   )
 }

@@ -1,17 +1,17 @@
 import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { useNavigate } from "react-router-dom"
 import { handleDeleteProducts, fetchProductData, fetchPlatformData } from "../stores/actions/actionCreator"
 import ModalGallery from "../components/ModalGallery"
-import ModalForm from "../components/ModalForm"
-import EditForm from "../components/EditForm"
+import ModalAddProduct from "../components/ModalAddProduct"
+import ModalEditProduct from "../components/ModalEditProduct"
+import { LoadingSpinner } from "../components/loadingSpinner"
 
 export default function Dashboard() {
 
   const dispatch = useDispatch()
-  const navigate = useNavigate()
   const [image, setImage] = useState([])
   const [detailData, setDetailData] = useState('')
+  const [isLoading, setIsLoading] = useState(false);
   const data = useSelector(state => state.product.dataProduct)
   const dataChanges = useSelector(state => state.product.dataProductChanges)
 
@@ -20,23 +20,30 @@ export default function Dashboard() {
   }
 
   function handleDelete(e, id) {
+    setIsLoading(true)
     e.preventDefault()
     dispatch(handleDeleteProducts(id))
-    e.target.editProduct()
+    setIsLoading(false)
   }
 
-  function handleEdit( id) {
+  function handleEdit(id) {
     const dataById = data.filter(el => el.id === id)
     setDetailData(dataById)
   }
 
   useEffect(() => {
+    setIsLoading(true)
     dispatch(fetchProductData())
     dispatch(fetchPlatformData())
+    setTimeout(function(){
+      setIsLoading(false)
+      }, 2000);
   }, [dataChanges])
 
 
   return (
+    <>
+    {isLoading ? <LoadingSpinner style="zIndex: 9999" /> : 
     <>
       <div>
         <h5 className="text-4xl mb-10">Product List</h5>
@@ -104,9 +111,12 @@ export default function Dashboard() {
 
       <ModalGallery image={image} />
 
-      <ModalForm />
+      <ModalAddProduct />
 
-      <EditForm detailData={detailData[0]} image={detailData[0]?.Images} />
+      <ModalEditProduct detailData={detailData[0]} image={detailData[0]?.Images} />
+    
+    </>
+    }
     </>
 
 

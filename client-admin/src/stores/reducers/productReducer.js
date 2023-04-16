@@ -12,12 +12,12 @@ export default function productReducer(state = defaultValue, action) {
         ...state,
         dataProductChanges: action.payload
       }
-    case 'delete/product':
+    case 'edit/product':
       return {
         ...state,
         dataProductChanges: action.payload
       }
-    case 'edit/product':
+    case 'delete/product':
       return {
         ...state,
         dataProductChanges: action.payload

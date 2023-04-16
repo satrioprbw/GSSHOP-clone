@@ -7,6 +7,21 @@ export default function platformReducer(state = defaultValue, action) {
         ...state,
         dataPlatform: action.payload
       }
+    case 'add/platform':
+      return {
+        ...state,
+        dataPlatformChanges: action.payload
+      }
+    case 'edit/platform':
+      return {
+        ...state,
+        dataPlatformChanges: action.payload
+      }
+    case 'delete/platform':
+      return {
+        ...state,
+        dataPlatformChanges: action.payload
+      }
     default:
       return state
   }

@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { handleEditProducts } from "../stores/actions/actionCreator";
 import { useNavigate } from "react-router-dom";
 
-export default function EditForm({ detailData, image }) {
+export default function ModalEditProduct({ detailData, image }) {
 
   const [formState, setFormState] = useState({
     name: '',
@@ -15,7 +15,6 @@ export default function EditForm({ detailData, image }) {
     release_date: ''
   });
   const [imgUrl, setImgUrl] = useState(['', ''])
-  const [isLoading, setIsLoading] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate()
   const dataPlatform = useSelector(state => state.platform.dataPlatform)
@@ -37,7 +36,7 @@ export default function EditForm({ detailData, image }) {
       newImgUrl.pop();
       setImgUrl(newImgUrl);
     } else {
-      throw new Error('Invalid input: number of image URLs must be between 1 and 5');
+      return null
     }
   }
 
@@ -61,11 +60,8 @@ export default function EditForm({ detailData, image }) {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    setIsLoading(true);
-
     dispatch(handleEditProducts(detailData.id, { ...formState, imgUrl}))
       .then(res => {
-        setIsLoading(false)
         navigate('/')
       })
   };
@@ -80,19 +76,19 @@ export default function EditForm({ detailData, image }) {
           <form className="space-y-6 mt-5" action="#" onSubmit={handleSubmit}>
             <div>
               <label htmlFor="name" className="block mb-2 text-sm font-medium text-gray-900 ">Name</label>
-              <input value={formState.name} onChange={handleInputChange} type="text" name="name" id="name" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " placeholder="" required />
+              <input value={formState.name} onChange={handleInputChange} type="text" name="name" id="name" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " placeholder="" />
             </div>
             <div>
               <label htmlFor="description" className="block mb-2 text-sm font-medium text-gray-900 ">Description</label>
-              <input value={formState.description} onChange={handleInputChange} type="text" name="description" id="description" placeholder="" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " required />
+              <input value={formState.description} onChange={handleInputChange} type="text" name="description" id="description" placeholder="" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " />
             </div>
             <div>
               <label htmlFor="genre" className="block mb-2 text-sm font-medium text-gray-900 ">Genre</label>
-              <input value={formState.genre} onChange={handleInputChange} type="text" name="genre" id="genre" placeholder="" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " required />
+              <input value={formState.genre} onChange={handleInputChange} type="text" name="genre" id="genre" placeholder="" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " />
             </div>
             <div>
               <label htmlFor="publisher" className="block mb-2 text-sm font-medium text-gray-900 ">Publisher</label>
-              <input value={formState.publisher} onChange={handleInputChange} type="text" name="publisher" id="publisher" placeholder="" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " required />
+              <input value={formState.publisher} onChange={handleInputChange} type="text" name="publisher" id="publisher" placeholder="" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " />
             </div>
             <div>
               <label htmlFor="platformId" className="block mb-2 text-sm font-medium text-gray-900 ">Platform</label>
@@ -106,17 +102,17 @@ export default function EditForm({ detailData, image }) {
             </div>
             <div>
               <label htmlFor="release_date" className="block mb-2 text-sm font-medium text-gray-900 ">Release Date</label>
-              <input value={formState.release_date} onChange={handleInputChange} type="text" name="release_date" id="release_date" placeholder="" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " required />
+              <input value={formState.release_date} onChange={handleInputChange} type="text" name="release_date" id="release_date" placeholder="" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " />
             </div>
             <div>
               <label htmlFor="mainImg" className="block mb-2 text-sm font-medium text-gray-900 ">Image Url</label>
-              <input value={formState.mainImg} onChange={handleInputChange} type="text" name="mainImg" id="mainImg" placeholder="Main Image Url" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " required />
+              <input value={formState.mainImg} onChange={handleInputChange} type="text" name="mainImg" id="mainImg" placeholder="Main Image Url" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " />
             </div>
             {imgUrl.map((el, i) => {
               return (
-                <div key={el.id} className="flex">
+                <div key={i} className="flex">
                   <span className="me-1">{i + 1}</span>
-                  <input value={el} onChange={(e) => handleInputImgUrl(e.target.value, i)} type="text" name="imgUrl" id="imgUrl" placeholder="Additional Image Url" className="w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 " required />
+                  <input value={el} onChange={(e) => handleInputImgUrl(e.target.value, i)} type="text" name="imgUrl" id="imgUrl" placeholder="Additional Image Url" className="w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 " />
                 </div>
               )
             })}
