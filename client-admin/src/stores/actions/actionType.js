@@ -1,3 +1,6 @@
-export const FETCH_PRODUCT_SUCCEEDED = 'fetch/game'
-export const FETCH_PLATFORM_SUCCEEDED = 'fetch/platform'
 export const LOGIN_USER_SUCCEEDED = 'user/login'
+export const FETCH_PRODUCT_SUCCEEDED = 'fetch/product'
+export const ADD_PRODUCT_SUCCEEDED = 'add/product'
+export const EDIT_PRODUCT_SUCCEEDED = 'edit/product'
+export const DELETE_PRODUCT_SUCCEEDED = 'delete/product'
+export const FETCH_PLATFORM_SUCCEEDED = 'fetch/platform'

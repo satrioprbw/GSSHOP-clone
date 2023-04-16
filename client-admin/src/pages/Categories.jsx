@@ -54,9 +54,10 @@ export default function Categories() {
                   <td className="px-6 py-4">
                     {el.updatedAt}
                   </td>
-                  <td className="px-6 py-4">
-                    <a href="#" className="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-                  </td>
+                  <td className="px-6 py-4 ">
+                      <label onClick={() => handleEdit(el.id)} htmlFor="editProduct" className="btn w-20 mb-3 me-4 font-medium text-white-600 dark:text-red-500 hover:underline">Edit</label>
+                      <label onClick={(e) => handleDelete(e, el.id)} href="#" className="btn font-medium text-red-600 dark:text-red-500 hover:underline">Delete</label>
+                    </td>
                 </tr>
               )
             })}

@@ -38,7 +38,7 @@ function Homepage() {
             if (new Date(el.release_date) > new Date()) {
               return <Link to={`/product/${el.slug}`} key={el.id} className="flex flex-col ">
                 <div className="flex justify-center bg-slate-50">
-                  <img className="h-auto content-center max-w-full rounded-lg" src={el.mainImg} alt="" />
+                  <img className="h-auto content-center max-w-sm rounded-lg" src={el.mainImg} alt="" />
                 </div>
                 <div className="flex justify-center">
                   <p href="#">{el.name}</p>
@@ -62,7 +62,7 @@ function Homepage() {
             if (new Date(el.release_date) < new Date()) {
               return <Link to={`/product/${el.slug}`} key={el.id} className="flex flex-col ">
                 <div className="flex justify-center bg-slate-50">
-                  <img className="h-auto content-center max-w-full rounded-lg" src={el.mainImg} alt="" />
+                  <img className="h-auto content-center max-w-sm rounded-lg" src={el.mainImg} alt="" />
                 </div>
                 <div className="flex justify-center">
                   <p href="#">{el.name}</p>
@@ -82,7 +82,7 @@ function Homepage() {
       </div>
       <div>
         <div className="grid grid-cols-2 md:grid-cols-2 gap-2 ps-10">
-          {data.map(el => {
+          {data.slice(0,3).map(el => {
             return (
               <>
                 <div className="grid gap-6 pb-10 my-auto justify-end">

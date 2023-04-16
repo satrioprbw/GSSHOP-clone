@@ -1,25 +1,40 @@
 import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { fetchGameData, fetchPlatformData } from "../stores/actions/actionCreator"
+import { useNavigate } from "react-router-dom"
+import { handleDeleteProducts, fetchProductData, fetchPlatformData } from "../stores/actions/actionCreator"
 import ModalGallery from "../components/ModalGallery"
 import ModalForm from "../components/ModalForm"
+import EditForm from "../components/EditForm"
 
 export default function Dashboard() {
 
-  const [image, setImage] = useState([])
   const dispatch = useDispatch()
-  
+  const navigate = useNavigate()
+  const [image, setImage] = useState([])
+  const [detailData, setDetailData] = useState('')
+  const data = useSelector(state => state.product.dataProduct)
+  const dataChanges = useSelector(state => state.product.dataProductChanges)
+
   function handleImage(data) {
     setImage(data)
   }
 
+  function handleDelete(e, id) {
+    e.preventDefault()
+    dispatch(handleDeleteProducts(id))
+    e.target.editProduct()
+  }
+
+  function handleEdit( id) {
+    const dataById = data.filter(el => el.id === id)
+    setDetailData(dataById)
+  }
+
   useEffect(() => {
-    dispatch(fetchGameData())
+    dispatch(fetchProductData())
     dispatch(fetchPlatformData())
-  }, [])
-  
-  const data = useSelector(state => state.game.dataGame)
-  const dataPlatform = useSelector(state => state.platform.dataPlatform)
+  }, [dataChanges])
+
 
   return (
     <>
@@ -56,28 +71,28 @@ export default function Dashboard() {
             <tbody>
               {data.map(el => {
                 return (
-                  <tr key={el.id} className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                    <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                  <tr key={el.id} className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 ">
+                    <th scope="row" className="max-w-md px-6 py-4 font-medium text-gray-900 whitespace-normal dark:text-white">
                       {el.name}
                     </th>
-                    <td className="px-6 py-4">
+                    <td className="px-6 py-4 max-w-sm">
                       {el.Platform.name}
                     </td>
-                    <td className="px-6 py-4">
+                    <td className="px-6 py-4 max-w-sm">
                       {el.genre}
                     </td>
-                    <td className="px-6 py-4">
+                    <td className="px-6 py-4 max-w-sm">
                       {el.User.username}
                     </td>
-                    <td className="px-6 py-4">
+                    <td className="px-6 py-4 max-w-sm">
                       <img src={el.mainImg} alt="" />
                     </td>
                     <td className="px-6 py-4">
                       <label onClick={() => handleImage(el.Images)} htmlFor="my-modal" className="btn">More Images</label>
                     </td>
-                    <td className="px-6 py-4">
-                      <a href="#" className="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-                      <a href="#" className="ms-4 font-medium text-red-600 dark:text-red-500 hover:underline">Delete</a>
+                    <td className="px-6 py-4 ">
+                      <label onClick={() => handleEdit(el.id)} htmlFor="editProduct" className="btn w-20 mb-3 font-medium text-white-600 dark:text-red-500 hover:underline">Edit</label>
+                      <label onClick={(e) => handleDelete(e, el.id)} href="#" className="btn font-medium text-red-600 dark:text-red-500 hover:underline">Delete</label>
                     </td>
                   </tr>
                 )
@@ -89,9 +104,9 @@ export default function Dashboard() {
 
       <ModalGallery image={image} />
 
-      <ModalForm dataPlatform={dataPlatform} />
+      <ModalForm />
 
-
+      <EditForm detailData={detailData[0]} image={detailData[0]?.Images} />
     </>
 
 

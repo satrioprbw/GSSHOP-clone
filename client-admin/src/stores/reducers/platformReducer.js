@@ -1,4 +1,4 @@
-const defaultValue = { dataPlatform: [] }
+const defaultValue = { dataPlatform: [], dataPlatformChanges: '' }
 
 export default function platformReducer(state = defaultValue, action) {
   switch (action.type) {
